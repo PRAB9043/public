@@ -1,27 +1,4 @@
-/* Adding a node from beginning
-* i/p : 1->2->3->4->5
-* o/p : 1->2->3->4->5
-*/
-
-#include <iostream>
-using namespace std;
-
-typedef struct st
-{
-    int node;
-    struct st * next;
-}ST;
-
-ST *hptr = NULL;
-void print_list(ST *ptr);
-void add_begin(ST **ptr);
-void insert_a_node(ST **ptr);
-void DeleteNodeFromList(ST **ptr);
-void DeleteNodeAnyPosition(ST **ptr);
-void ReverseList(ST **ptr);
-void RecursiveReverseList(ST **ptr);
-void FindMiddleNode(ST **ptr);
-void DeleteFromLast(ST **ptr);
+#include "Add_begin.hpp"
 
 int  main()
 {
@@ -31,26 +8,69 @@ int  main()
     int i;
     for(i = 0 ;i < ele; i++)
         add_begin(&hptr);
-    print_list(hptr);
-    insert_a_node(&hptr);
-    cout<<"****************After insert a node...***************\n";
-    print_list(hptr);
-    DeleteNodeFromList(&hptr);
-    cout<<"****************After Delete a node from List ************\n";
-    print_list(hptr);
-    DeleteNodeAnyPosition(&hptr);
-    cout<<"****************After Delete a node from any position ************\n";
-    print_list(hptr);
-    ReverseList(&hptr);
-    cout<<"****************After Reverse a List ************\n";
-    print_list(hptr);
-    RecursiveReverseList(&hptr);
-    cout<<"****************After Recursive Reverse a List ************\n";
-    print_list(hptr);
-    FindMiddleNode(&hptr);
-    DeleteFromLast(&hptr);
-    cout<<"****************After Delete a node from last position ************\n";
-    print_list(hptr);
+        while(1)
+        {
+            cout<<"*****************************************************************************\n";
+            cout<<"Please choose any options....\n";
+            cout<<"Press 0 Exit ...\n";
+            cout<<"Press 1 Print List...\n";
+            cout<<"Press 2 Add_Begin List...\n";
+            cout<<"Press 3 Insert a node...\n";
+            cout<<"Press 4 Delete a node from List...\n";
+            cout<<"Press 5 Delete a node from position...\n";
+            cout<<"Press 6 Reverse List...\n";
+            cout<<"Press 7 Recursive reverse List...\n";
+            cout<<"Press 8 Find Middle Node from List...\n";
+            cout<<"Press 9 Delete from last node and find a node from last position...\n\n\n";
+            int number;
+            cin>>number;
+            switch(number)
+            {
+                case PRINT_LIST:
+                 print_list(hptr);
+                 break;
+                case ADD_BEGIN:
+                    print_list(hptr);
+                   break;
+                case INSERT_A_NODE:
+                    insert_a_node(&hptr);
+                    cout<<"****************After insert a node...***************\n";
+                    print_list(hptr);
+                    break;
+                case DELETENODEFROMLIST:
+                    DeleteNodeFromList(&hptr);
+                    cout<<"****************After Delete a node from List ************\n";
+                    print_list(hptr);
+                    break;
+                case DELETENODEANYPOSITION:
+                    DeleteNodeAnyPosition(&hptr);
+                    cout<<"****************After Delete a node from any position ************\n";
+                    print_list(hptr);
+                    break;
+                case REVERSELIST:
+                    ReverseList(&hptr);
+                    cout<<"****************After Reverse a List ************\n";
+                    print_list(hptr);
+                    break;
+                case RECURSIVEREVERSELIST:
+                    RecursiveReverseList(&hptr);
+                    cout<<"****************After Recursive Reverse a List ************\n";
+                    print_list(hptr);
+                    break;
+                case FINDMIDDLENODE:
+                    FindMiddleNode(&hptr);
+                    break;
+                case DELETEFROMLIST:
+                    DeleteFromLast(&hptr);
+                    cout<<"****************After Delete a node from last position ************\n";
+                    print_list(hptr);
+                    break;
+                case EXIT_LIST:
+                    exit(0);
+                default:
+                    cout<<"Please choose correct option...\n";
+            }
+        }
     return 0;
 }
 void DeleteFromLast(ST **ptr)

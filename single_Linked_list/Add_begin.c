@@ -1,3 +1,8 @@
+/* Adding a node from beginning
+* i/p : 1->2->3->4->5
+* o/p : 1->2->3->4->5
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct st
